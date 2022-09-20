@@ -41,6 +41,7 @@ components, such as ChakraUI
 - included [router](https://v5.reactrouter.com/web/guides/quick-start) with `npm i react-router-dom`
 - included [material ui](https://mui.com/material-ui/getting-started/installation/) `npm install @mui/material @emotion/react @emotion/styled @mui/styles
 `
+- After that included more component of material ui : `npm install @mui/icons-material`
 - 
 
 
