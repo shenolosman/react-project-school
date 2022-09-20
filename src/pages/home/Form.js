@@ -1,13 +1,14 @@
 import { Button, TextField, Typography } from "@mui/material";
 import { useState } from "react";
-
+import { useFirestore } from "../../hooks/useFirestore";
 export default function Form() {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
-
+  const { docAdd, response } = useFirestore("MoneyManager");
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(title, amount);
+    //console.log(title, amount);
+    docAdd({ title, amount });
   };
   return (
     <form autoComplete="off" noValidate onSubmit={handleSubmit}>
@@ -28,7 +29,7 @@ export default function Form() {
         fullWidth
         required
         onChange={(e) => setAmount(e.target.value)}
-        value={title}
+        value={amount}
         sx={{ my: 5 }}
       />
       <Button variant="contained" color="success" type="submit">
