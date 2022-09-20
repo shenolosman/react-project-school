@@ -1,15 +1,26 @@
 import { Button, TextField, Typography } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useFirestore } from "../../hooks/useFirestore";
-export default function Form({uid}) {
+export default function Form({ uid }) {
+  const { docAdd, response } = useFirestore("MoneyManager");
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
-  const { docAdd, response } = useFirestore("MoneyManager");
+
   const handleSubmit = (e) => {
     e.preventDefault();
     //console.log(title, amount);
-    docAdd({ uid,title, amount });
+    docAdd({ uid, title, amount });
   };
+
+  useEffect(() => {
+    console.log(response);
+    if (response.success) {
+    // if (response) {
+      setTitle("");
+      setAmount("");
+    }
+  // }, [response]);
+  }, [response].success);
   return (
     <form autoComplete="off" noValidate onSubmit={handleSubmit}>
       <Typography variant="h6" color="darkslateblue">
@@ -32,7 +43,7 @@ export default function Form({uid}) {
         value={amount}
         sx={{ my: 5 }}
       />
-      <Button variant="contained" color="success" type="submit">
+      <Button variant="contained" color="primary" type="submit">
         Add
       </Button>
     </form>

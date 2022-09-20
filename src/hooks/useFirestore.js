@@ -6,20 +6,19 @@ import {
   deleteDoc,
   serverTimestamp,
 } from "firebase/firestore";
-import { PlaylistAddOutlined } from "@mui/icons-material";
 
 const startData = {
   document: null,
   loading: false,
   error: null,
-  success: null,
+  success: false,
 };
 
 const firestoreReducer = (state, action) => {
   switch (action.type) {
     case "WAITING":
       return { error: null, document: null, success: false, loading: true };
-    case "DONE":
+    case "ADDED":
       return {
         error: null,
         document: action.payload,
@@ -44,13 +43,12 @@ export const useFirestore = (col) => {
   const ref = collection(db, col);
 
   const docAdd = async (document) => {
-    dispatch({ tyoe: "WAITING" });
-
+    dispatch({ type: "WAITING" });
     try {
       const createdDate = serverTimestamp();
-      const addedDoc = await addDoc(ref, {...document,createdDate});
-      if (!cancel) {
-        dispatch({ type: "DONE", payload: addedDoc });
+      const addedDoc = await addDoc(ref, { ...document, createdDate });
+      if (cancel) {
+        dispatch({ type: "ADDED", payload: addedDoc });
       }
     } catch (error) {
       if (!cancel) {
@@ -59,9 +57,10 @@ export const useFirestore = (col) => {
     }
   };
   const docDelete = async (id) => {};
+
   useEffect(() => {
     return () => setCancel(true);
-  }, []);
+  },[]);
 
   return { docAdd, docDelete, response };
 };
