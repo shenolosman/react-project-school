@@ -13,7 +13,9 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import React, { useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
 import "./Signup.module.css";
+import { useNavigate } from "react-router-dom";
 const Signup = () => {
+  const navigate=useNavigate()
   const { signup, error, loading } = useSignup();
   const [values, setValues] = useState({
     email: "",
@@ -28,8 +30,9 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values);
+    // console.log(values);
     signup(values.email, values.password, values.username);
+    navigate("/")
   };
 
   const handleVisibiltyPassword = () => {

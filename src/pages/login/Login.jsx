@@ -13,10 +13,11 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import React, { useState } from "react";
 import "./Login.module.css";
 import { useLogin } from "../../hooks/useLogin";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { login, error, loading } = useLogin();
-
+  const navigate = useNavigate();
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -29,8 +30,9 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values);
+    //console.log(values);
     login(values.email, values.password);
+    navigate("/")
   };
 
   const handleVisibiltyPassword = () => {
