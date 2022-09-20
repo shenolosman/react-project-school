@@ -2,7 +2,7 @@ import { useState } from "react";
 import { auth } from "../firebase/config";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
-export const UseSignup = () => {
+export const useSignup = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 

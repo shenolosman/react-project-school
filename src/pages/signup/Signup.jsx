@@ -11,13 +11,15 @@ import {
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import React, { useState } from "react";
+import { useSignup } from "../../hooks/useSignup";
 import "./Signup.module.css";
 const Signup = () => {
+  const {signup,error,loading}=useSignup()
   const [values, setValues] = useState({
     email: "",
     password: "",
     showPassword: false,
-    username:""
+    username: "",
   });
 
   const handleChange = (prop) => (e) => {
@@ -27,6 +29,7 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(values);
+    signup(values.email,values.password,values.username)
   };
 
   const handleVisibiltyPassword = () => {
@@ -85,6 +88,8 @@ const Signup = () => {
             onChange={handleChange("username")}
           />
         </FormControl>
+        {!loading &&
+       
         <Button
           variant="contained"
           type="submit"
@@ -93,7 +98,20 @@ const Signup = () => {
           sx={{ mt: 1 }}
         >
           Register
-        </Button>
+        </Button> }
+        {loading &&
+       
+       <Button
+         variant="contained"
+         type="submit"
+         color="primary"
+         size="large"
+         sx={{ mt: 1 }} 
+         disabled
+       >
+         Waiting...
+       </Button> }
+       {error && <p>{error}</p>}
       </form>
     </Container>
   );
