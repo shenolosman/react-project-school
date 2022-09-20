@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { auth } from "../firebase/config";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { useAuthContext } from "./useAuthContext";
 
 export const useSignup = () => {
+  const { dispatch } = useAuthContext();
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -17,6 +19,8 @@ export const useSignup = () => {
       }
 
       await updateProfile(res.user, { displayName });
+
+      dispatch({ type: "LOGIN", payload: res.user });
 
       setLoading(false);
       setError(null);
