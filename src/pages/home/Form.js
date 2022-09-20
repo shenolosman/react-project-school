@@ -1,14 +1,14 @@
 import { Button, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { useFirestore } from "../../hooks/useFirestore";
-export default function Form() {
+export default function Form({uid}) {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const { docAdd, response } = useFirestore("MoneyManager");
   const handleSubmit = (e) => {
     e.preventDefault();
     //console.log(title, amount);
-    docAdd({ title, amount });
+    docAdd({ uid,title, amount });
   };
   return (
     <form autoComplete="off" noValidate onSubmit={handleSubmit}>
