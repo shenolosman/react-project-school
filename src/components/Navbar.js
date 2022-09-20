@@ -6,8 +6,10 @@ import Box from "@mui/material/Box";
 import React from "react";
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
+import { useLogout } from "../hooks/useLogout";
 
 const Navbar = () => {
+  const { logout } = useLogout();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="primary">
@@ -18,10 +20,17 @@ const Navbar = () => {
             </Link>
           </Typography>
           <Button variant="outlined" color="inherit">
-            <Link component="button" className={styles.link} to="/login">Login</Link>
+            <Link component="button" className={styles.link} to="/login">
+              Login
+            </Link>
           </Button>
           <Button variant="text" color="secondary">
-            <Link component="button" className={styles.link} to="/signup">Register</Link>
+            <Link component="button" className={styles.link} to="/signup">
+              Register
+            </Link>
+          </Button>
+          <Button variant="contained" color="secondary" sx={{ ml: 5 }} onClick={logout}>
+            LogOut
           </Button>
         </Toolbar>
       </AppBar>
