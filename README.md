@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Money Manager Project 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Create a project with any purpose. This needs to be done in teams. 
 
-## Available Scripts
+`Money Tracking Manager APP `
 
-In the project directory, you can run:
+2. The project must use at least 1 of the built-in hooks in the React library
 
-### `npm start`
+`Application will be include useState,useEffect,etc.`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. At least 1 value must be passed down the component hierarchy using Props
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`Will be include different components with passing trough props`
 
-### `npm test`
+4. Routing must take place according to SPA
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`Included react-router-dom`
 
-### `npm run build`
+5. (optional) Download external data (via API) and display the data graphically
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`Data comes from Google Firebase and showing it with graphically`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+6. Your components must be responsive
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`Thanks to Material UI can be fit for all kind of use`
 
-### `npm run eject`
+7. (optional) Use a components library to create and style your 
+components, such as ChakraUI
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`Material UI will be used`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+8. Your project should be version controlled and uploaded to github. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+`Github`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### There should be a README.md with information about the kind of application you built and it should include screenshots. You should present your project to the class in the final lecture as a team
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Deleted unnecessary files and lines
+- included [router](https://v5.reactrouter.com/web/guides/quick-start) with `npm i react-router-dom`
+- included [material ui](https://mui.com/material-ui/getting-started/installation/) `npm install @mui/material @emotion/react @emotion/styled @mui/styles
+`
+- 
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Home page Image;
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Home image](/public/img/home.jpg "Home")
