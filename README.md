@@ -42,7 +42,7 @@ components, such as ChakraUI
 - included [material ui](https://mui.com/material-ui/getting-started/installation/) `npm install @mui/material @emotion/react @emotion/styled @mui/styles
 `
 - After that included more component of material ui : `npm install @mui/icons-material`
-- 
+- created [firebase](https://console.firebase.google.com/) project and then installed firebase with terminal `npm install firebase` and made config file
 
 
 Home page Image;
