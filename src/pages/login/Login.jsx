@@ -8,11 +8,15 @@ import {
   InputAdornment,
   IconButton,
 } from "@mui/material";
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import React, { useState } from "react";
 import "./Login.module.css";
+import { useLogin } from "../../hooks/useLogin";
+
 const Login = () => {
+  const { login, error, loading } = useLogin();
+
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -26,6 +30,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(values);
+    login(values.email, values.password);
   };
 
   const handleVisibiltyPassword = () => {
@@ -60,22 +65,46 @@ const Login = () => {
             type={values.showPassword ? "text" : "password"}
             endAdornment={
               <InputAdornment position="end">
-                <IconButton aria-label="Toggle Password" onClick={handleVisibiltyPassword} edge="end">
-                  {values.showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                <IconButton
+                  aria-label="Toggle Password"
+                  onClick={handleVisibiltyPassword}
+                  edge="end"
+                >
+                  {values.showPassword ? (
+                    <VisibilityOffIcon />
+                  ) : (
+                    <VisibilityIcon />
+                  )}
                 </IconButton>
               </InputAdornment>
             }
           />
         </FormControl>
-        <Button
-          variant="outlined"
-          type="submit"
-          color="primary"
-          size="large"
-          sx={{ mt: 1 }}
-        >
-          Log in
-        </Button>
+
+        {!loading && (
+          <Button
+            variant="outlined"
+            type="submit"
+            color="primary"
+            size="large"
+            sx={{ mt: 1 }}
+          >
+            Log in
+          </Button>
+        )}
+        {loading && (
+          <Button
+            variant="outlined"
+            type="submit"
+            color="primary"
+            size="large"
+            sx={{ mt: 1 }}
+            disabled
+          >
+            Loading...
+          </Button>
+        )}
+        {error && <p>{error}</p>}
       </form>
     </Container>
   );

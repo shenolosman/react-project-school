@@ -14,7 +14,7 @@ import React, { useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
 import "./Signup.module.css";
 const Signup = () => {
-  const {signup,error,loading}=useSignup()
+  const { signup, error, loading } = useSignup();
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -29,7 +29,7 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(values);
-    signup(values.email,values.password,values.username)
+    signup(values.email, values.password, values.username);
   };
 
   const handleVisibiltyPassword = () => {
@@ -88,30 +88,30 @@ const Signup = () => {
             onChange={handleChange("username")}
           />
         </FormControl>
-        {!loading &&
-       
-        <Button
-          variant="contained"
-          type="submit"
-          color="primary"
-          size="large"
-          sx={{ mt: 1 }}
-        >
-          Register
-        </Button> }
-        {loading &&
-       
-       <Button
-         variant="contained"
-         type="submit"
-         color="primary"
-         size="large"
-         sx={{ mt: 1 }} 
-         disabled
-       >
-         Waiting...
-       </Button> }
-       {error && <p>{error}</p>}
+        {!loading && (
+          <Button
+            variant="contained"
+            type="submit"
+            color="primary"
+            size="large"
+            sx={{ mt: 1 }}
+          >
+            Register
+          </Button>
+        )}
+        {loading && (
+          <Button
+            variant="contained"
+            type="submit"
+            color="primary"
+            size="large"
+            sx={{ mt: 1 }}
+            disabled
+          >
+            Waiting...
+          </Button>
+        )}
+        {error && <p>{error}</p>}
       </form>
     </Container>
   );
