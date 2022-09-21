@@ -40,7 +40,7 @@ export const useCollection = (col, _q, _orderBy) => {
       }
     );
     return () => unsubscribe();
-  }, [col, q]);
+  }, [col, q, orderby]);
 
   return { documents, error };
 };

@@ -13,7 +13,7 @@ export default function Form({ uid }) {
   };
 
   useEffect(() => {
-    console.log(response);
+    //console.log(response);
     if (response.success) {
     // if (response) {
       setTitle("");

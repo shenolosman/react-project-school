@@ -3,8 +3,9 @@ import { db } from "../firebase/config";
 import {
   collection,
   addDoc,
-  deleteDoc,
+  doc,
   serverTimestamp,
+  deleteDoc,
 } from "firebase/firestore";
 
 const startData = {
@@ -32,6 +33,8 @@ const firestoreReducer = (state, action) => {
         success: false,
         loading: false,
       };
+    case "DELETED":
+      return { error: null, document: null, success: true, loading: false };
     default:
       return state;
   }
@@ -56,11 +59,24 @@ export const useFirestore = (col) => {
       }
     }
   };
-  const docDelete = async (id) => {};
+  const docDelete = async (id) => {
+    dispatch({ type: "WAITING" });
+    try {
+      let ref = doc(db, col, id);
+      await deleteDoc(ref);
+      if (!cancel) {
+        dispatch({ type: "DELETED" });
+      }
+    } catch (error) {
+      if (!cancel) {
+        dispatch({ type: "ERROR", payload: error.message });
+      }
+    }
+  };
 
   useEffect(() => {
     return () => setCancel(true);
-  },[]);
+  }, []);
 
   return { docAdd, docDelete, response };
 };
