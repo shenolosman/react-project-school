@@ -7,7 +7,7 @@ import { useCollection } from "../../hooks/useCollection";
 import "./Home.module.css";
 const Home = () => {
   const { user } = useAuthContext();
-  const { documents, error } = useCollection("MoneyManager");
+  const { documents, error } = useCollection("MoneyManager",["uid","==",user.uid]);
   return (
     <Container sx={{ mt: 8 }}>
       <Grid container spacing={10}>
