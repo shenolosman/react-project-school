@@ -1,16 +1,26 @@
 import { useState, useEffect, useRef } from "react";
 import { db } from "../firebase/config";
-import { collection, onSnapshot, query, where } from "firebase/firestore";
+import {
+  collection,
+  onSnapshot,
+  query,
+  where,
+  orderBy,
+} from "firebase/firestore";
 
-export const useCollection = (col, _q) => {
+export const useCollection = (col, _q, _orderBy) => {
   const [documents, setDocuments] = useState(null);
   const [error, setError] = useState(null);
   const q = useRef(_q).current;
+  const orderby = useRef(_orderBy).current; //this should be created manuel on firebase website and should create indexes with seleted 2 var
   useEffect(() => {
     let ref = collection(db, col);
 
     if (q) {
       ref = query(ref, where(...q));
+    }
+    if (orderby) {
+      ref = query(ref, orderBy(...orderby));
     }
 
     const unsubscribe = onSnapshot(
@@ -30,7 +40,7 @@ export const useCollection = (col, _q) => {
       }
     );
     return () => unsubscribe();
-  }, [col]);
+  }, [col, q]);
 
   return { documents, error };
 };
