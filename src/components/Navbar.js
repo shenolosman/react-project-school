@@ -37,9 +37,14 @@ const Navbar = () => {
           )}
           {user&&(
           <>
-            <Typography variant="caption">
-              Welcome {user.displayName}
+            <Typography variant="overline" sx={{mr:5}}>
+              Welcome <strong>{user.displayName}</strong>
             </Typography>
+            <Button variant="contained" color="success">
+                <Link component="button" className={styles.link} to="/chart">
+                  Chart
+                </Link>
+              </Button>
             <Button
               variant="contained"
               color="error"

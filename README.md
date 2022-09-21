@@ -1,41 +1,19 @@
 # Money Manager Project 
 
-1. Create a project with any purpose. This needs to be done in teams. 
+Project thought to make `Money Tracking Manager APP`. 
 
-`Money Tracking Manager APP `
+Application included hooks like useState,useEffect,useRef and etc. 
 
-2. The project must use at least 1 of the built-in hooks in the React library
+And also passed props to different kind of components.
 
-`Application will be include useState,useEffect,etc.`
+`Included react-router-dom` to manage routing between pages.
 
-3. At least 1 value must be passed down the component hierarchy using Props
+`Data comes from Google Firebase and showing it with graphically` even as list and as a graph.
 
-`Will be include different components with passing trough props`
-
-4. Routing must take place according to SPA
-
-`Included react-router-dom`
-
-5. (optional) Download external data (via API) and display the data graphically
-
-`Data comes from Google Firebase and showing it with graphically`
-
-6. Your components must be responsive
-
-`Thanks to Material UI can be fit for all kind of use`
-
-7. (optional) Use a components library to create and style your 
-components, such as ChakraUI
-
-`Material UI will be used`
-
-8. Your project should be version controlled and uploaded to github. 
-
-`Github`
+`Thanks to Material UI can be fit for all kind of use .` Material UI is responsible and easy to use.
 
 
-
-### There should be a README.md with information about the kind of application you built and it should include screenshots. You should present your project to the class in the final lecture as a team
+## Briefly
 
 - Deleted unnecessary files and lines
 - included [router](https://v5.reactrouter.com/web/guides/quick-start) with `npm i react-router-dom`
@@ -43,7 +21,10 @@ components, such as ChakraUI
 `
 - After that included more component of material ui : `npm install @mui/icons-material`
 - created [firebase](https://console.firebase.google.com/) project and then installed firebase with terminal `npm install firebase` and made config file
+- implamentent [Chart](https://react-chartjs-2.js.org/components/chart) `npm install --save chart.js react-chartjs-2`
 
+
+## Some pics from the project 
 
 Home, redirect to the login directly
 
@@ -66,5 +47,9 @@ After succesfully login we see only logout button on the top right and welcoming
 
 ![home image](/public/img/home-user.jpg "home-user")
 
+
+Graph page
+
+![graph image](/public/img/graph.jpg "graph")
 
 Every user see their own expenses 
