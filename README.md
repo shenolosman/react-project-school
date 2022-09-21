@@ -45,6 +45,26 @@ components, such as ChakraUI
 - created [firebase](https://console.firebase.google.com/) project and then installed firebase with terminal `npm install firebase` and made config file
 
 
-Home page Image;
+Home, redirect to the login directly
 
 ![Home image](/public/img/home.jpg "Home")
+
+
+register page
+
+![register image](/public/img/register.jpg "register")
+
+login page, password can be shown with clicking the eye button
+
+![login image](/public/img/login-pass.jpg "login")
+
+![login image](/public/img/login-show-pass.jpg "login")
+
+
+
+After succesfully login we see only logout button on the top right and welcoming text. The screen splited into two different part. On the right side we can add new expenses and on the left side we see what we did, also can be deleted by clicking trash-bin icon.
+
+![home image](/public/img/home-user.jpg "home-user")
+
+
+Every user see their own expenses 
